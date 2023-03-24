@@ -1,7 +1,13 @@
-import React, {createContext, useState, useEffect} from 'react';
-import { json } from 'react-router-dom';
+import React from 'react';
 
 
+
+const ProductDetails = () => {
+  return <div>Product Details Page</div>;
+};
+
+export default ProductDetails;
+/*
 export const ProductContext = createContext()
 
 
@@ -33,4 +39,4 @@ const ProductProvider = ({children}) => {
   return <ProductContext.Provider value={{products}}>{children}</ProductContext.Provider>
 };
 
-export default ProductProvider;
+*/
