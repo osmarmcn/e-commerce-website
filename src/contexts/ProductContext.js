@@ -19,8 +19,8 @@ const ProductProvider = ({children}) => {
         //.then(json => console.log(json))
 
         const data = await response.json()
-        console.log(data)
-        //setProducts(data)
+        //console.log(data)
+        setProducts(data)
     }
 
     fetchProducts()
