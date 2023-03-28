@@ -43,8 +43,27 @@ const removeFromCart = (id) =>{
   setCart(newCart)
 }
 
+const clearCart = () =>{
+  setCart([])
+}
 
-  return  <CartContext.Provider value={{cart,addToCart, removeFromCart}}>
+const increaseAmount = (id) =>{
+ //console.log('amount increased')
+
+ const item = cart.find((item) =>item.id === id)
+ //console.log(item)
+ addToCart(item, id)
+
+}
+
+const decreaseAmount = (id) =>{
+  const item = cart.find((item) =>{
+    return item.id === id
+  })
+  console.log(item)
+}
+
+  return  <CartContext.Provider value={{cart,addToCart, removeFromCart, clearCart, increaseAmount, decreaseAmount}}>
     {children}
   </CartContext.Provider>
 }
