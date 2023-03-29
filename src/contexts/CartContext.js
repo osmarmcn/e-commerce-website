@@ -6,6 +6,10 @@ const CartProvider = ({children}) => {
 
 const [cart,setCart] = useState([])
 
+const [itemAmount, setItemAmount] = useState(0)
+
+
+
 const addToCart = (product, id) =>{
 
   const newItem = {...product, amount:1}
@@ -50,20 +54,39 @@ const clearCart = () =>{
 const increaseAmount = (id) =>{
  //console.log('amount increased')
 
- const item = cart.find((item) =>item.id === id)
+ const cartItem = cart.find((item) =>item.id === id)
  //console.log(item)
- addToCart(item, id)
+ addToCart(cartItem, id)
 
 }
 
 const decreaseAmount = (id) =>{
-  const item = cart.find((item) =>{
+  const cartItem= cart.find((item) =>{
     return item.id === id
   })
-  console.log(item)
+
+  if(cartItem){
+    const newCart = cart.map((item) =>{
+      if(item.id === id){
+        return {...item, amount:cartItem.amount -1}
+
+      }else{
+        return item
+
+      }
+    })
+    setCart(newCart)
+
+  }
+
+  if(cartItem.amount < 2){
+      removeFromCart(id)
+    }
+  
+  
 }
 
-  return  <CartContext.Provider value={{cart,addToCart, removeFromCart, clearCart, increaseAmount, decreaseAmount}}>
+  return  <CartContext.Provider value={{cart,addToCart, removeFromCart, clearCart, increaseAmount, decreaseAmount, itemAmount}}>
     {children}
   </CartContext.Provider>
 }
