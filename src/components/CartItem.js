@@ -30,7 +30,7 @@ const CartItem = ({item}) => {
                   <IoMdClose className='text-gray-500 hover:text-red-500 transition'/>
               </div>
             </div>
-             <div className='flex gap-x-2 h-[3px] text-sm'>
+             <div className='flex gap-x-2 h-[30px] text-sm'>
                 {/*quantity */}
                 <div className='flex flex-1 max-w-[100px]  items-center h-full border text-primary font-medium'>
                    {/*minus icon*/}
